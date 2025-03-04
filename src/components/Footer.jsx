@@ -6,14 +6,14 @@ import logo from "/metroavila.svg";
 
 export const Footer = () => {
   return (
-    <footer className="w-full max-w-[1800px] mx-auto bg-[#C5D098] rounded-t-[10px] p-6">
+    <footer className="w-full bg-[#C5D098] rounded-t-[10px] p-6 shadow-md">
       {/* Contenedor principal */}
-      <div className="flex flex-col md:flex-row justify-between items-start space-y-6 md:space-y-0">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
         {/* Logo Section */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 lg:ml-20 mb-4 md:mb-0">
           <a href="#">
             <img
-                className="w-[200px] md:w-[377px] h-50 object-contain"
+                className="w-[150px] md:w-[377px] h-auto object-contain"
                 src={logo}
                 alt="MetroÁvila Logo"
             />
@@ -21,8 +21,8 @@ export const Footer = () => {
         </div>
 
         {/* Explore Section */}
-        <div className="text-center md:text-left">
-          <h2 className="text-[#889e19] text-xl md:text-2xl font-black">EXPLORA</h2>
+        <div className="text-center md:text-left mb-4 md:mb-0">
+          <h2 className="text-[#889e19] text-lg md:text-2xl font-black">EXPLORA</h2>
           <ul className="text-[#889e19] text-sm md:text-base font-extrabold space-y-2 mt-2">
             <li>Sobre nosotros</li>
             <li>Destinos</li>
@@ -33,8 +33,8 @@ export const Footer = () => {
         </div>
 
         {/* Contact Section */}
-        <div className="text-center md:text-left">
-          <h2 className="text-[#889e19] text-xl md:text-2xl font-black">CONTÁCTANOS</h2>
+        <div className="text-center ml-5 mr-5 md:text-left">
+          <h2 className="text-[#889e19] text-lg md:text-2xl font-black">CONTÁCTANOS</h2>
           <ul className="text-[#889e19] text-sm md:text-base font-extrabold space-y-2 mt-2">
             <li className="flex items-center justify-center md:justify-start">
               <img
@@ -68,7 +68,7 @@ export const Footer = () => {
       <hr className="w-full border-t border-[#889e19] my-4" />
 
       {/* Copyright Section */}
-      <p className="text-center text-[#889e19] text-lg md:text-xl font-black">
+      <p className="text-center text-[#889e19] text-sm md:text-lg font-black">
         © Copyright 2025 by MetroÁvila
       </p>
     </footer>

@@ -4,10 +4,10 @@ import { NavBar } from "./NavBar";
 
 export const Header = () => {
     return (
-        <header className=" flex h-[96px] bg-[#C5D098] rounded-bl-[8px] rounded-br-[8px]">
+        <header className="sticky top-0 z-50 flex h-[86px] bg-[#C5D098] rounded-b-[10px] rounded-br-[8px] shadow-md">
             <div className="pl-[32px] pt-2">
                 <a href="#">
-                    <img src={logo} alt="MetroAvila Logo" className="w-[180px] h-[81px]"/>
+                    <img src={logo} alt="MetroAvila Logo" className="lg:w-[180px] lg:h-[81px] lg:mt-0 w-[80px] h-[41px] mt-5"/>
                 </a>   
             </div>
             <div className="flex">
