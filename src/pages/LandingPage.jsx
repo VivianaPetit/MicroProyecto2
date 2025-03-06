@@ -1,6 +1,7 @@
 import { Footer } from "../components/Footer"
 import { Header } from "../components/Header"
 import MisionVisionSection from "../components/MisionVisionSection"
+import { TestimonialsSection } from "../components/TestimonialsSection"
 
 export const LandingPage = () => {
   return (
@@ -11,6 +12,7 @@ export const LandingPage = () => {
       {/* Contenido principal */}
       <main className="flex-grow lg:m-16">
         <MisionVisionSection />
+        <TestimonialsSection />
       </main>
 
       {/* Footer */}
