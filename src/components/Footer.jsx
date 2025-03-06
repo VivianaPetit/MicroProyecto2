@@ -3,6 +3,7 @@ import phone from "../assets/phone-icon.svg";
 import mail from "../assets/mail-icon.svg";
 import location from "../assets/location-icon.svg";
 import logo from "/metroavila.svg";
+import { NavBar } from "./NavBar";
 
 export const Footer = () => {
   return (
@@ -20,16 +21,10 @@ export const Footer = () => {
           </a>
         </div>
 
-        {/* Explore Section */}
+        {/* Explore Section */} 
         <div className="text-center md:text-left mb-4 md:mb-0">
           <h2 className="text-[#889e19] text-lg md:text-2xl font-black">EXPLORA</h2>
-          <ul className="text-[#889e19] text-sm md:text-base font-extrabold space-y-2 mt-2">
-            <li>Sobre nosotros</li>
-            <li>Destinos</li>
-            <li>Reservas</li>
-            <li>Galería</li>
-            <li>Foro</li>
-          </ul>
+          <NavBar className="text-[#889e19] text-sm md:text-base font-extrabold space-y-2 mt-2" />
         </div>
 
         {/* Contact Section */}
