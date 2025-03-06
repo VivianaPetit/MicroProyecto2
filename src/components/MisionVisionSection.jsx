@@ -1,5 +1,5 @@
 import React from 'react';
-import avila from "../assets/avila.jpg";
+import avila from "../assets/avila-circular.png";
 
 const MisionVisionSection = () => {
   return (
@@ -9,7 +9,7 @@ const MisionVisionSection = () => {
         data-aos-duration="1500"
         data-aos-once="true"
         >
-        <img className='w-auto h-auto object-cover rounded-lg' 
+        <img className='w-[600px] h-[600px] object-cover rounded-full ' 
           src={avila} 
           alt="Paisasjes del Avila"/>
       </div>
