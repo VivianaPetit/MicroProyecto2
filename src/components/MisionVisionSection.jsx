@@ -3,17 +3,20 @@ import avila from "../assets/avila.jpg";
 
 const MisionVisionSection = () => {
   return (
-    <div className='flex m-8 flex-col lg:flex-row items-center lg:items-start gap-8 p-4'>
+    <div className='flex flex-col m-8 lg:flex-row items-center lg:items-start gap-8 p-4'>
       <div className='lg:w-1/2'
-        data-aos="zoom-in" 
-        data-aos-duration="700"
+        data-aos="fade-up" 
+        data-aos-duration="1500"
         data-aos-once="true"
         >
         <img className='w-auto h-auto object-cover rounded-lg' 
           src={avila} 
           alt="Paisasjes del Avila"/>
       </div>
-      <div className='relative text-2xl lg:w-[600px] w-[560px]'>
+      <div className='relative text-2xl lg:w-[600px] w-[560px]'
+      data-aos="fade-up" 
+      data-aos-duration="1500"
+      data-aos-once="true">
           <div className='items-center'>
             <h2 className='lg:text-[42px] md:text-[32px] text-[28px] font-extrabold mb-5 text-[#889e19] text-center'> NUESTRA MISIÓN</h2>
             <p className='lg:text-[16px] md:text-[15px] text-[14px] text-center pl-17 pr-17'>Fomentar la conexión entre los estudiantes de la Universidad Metropolitana y la riqueza natural del Parque Nacional El Ávila, promoviendo 
@@ -30,7 +33,7 @@ const MisionVisionSection = () => {
             </h2>
             <div className='flex justify-center relative text-center lg:text-[16px] md:text-[14px] text-[12px]'
             data-aos="fade-right" 
-            data-aos-duration="800"
+            data-aos-duration="1500"
             data-aos-once="true"> 
               <div className='relative'>
                 <div className='bg-[rgba(197,208,152,0.6)] p-2 m-3 place-content-center rounded-[30px] 

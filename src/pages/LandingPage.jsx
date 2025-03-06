@@ -4,12 +4,12 @@ import MisionVisionSection from "../components/MisionVisionSection"
 
 export const LandingPage = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-hidden">
       {/* Header */}
       <Header />
 
       {/* Contenido principal */}
-      <main className="flex-grow">
+      <main className="flex-grow lg:m-16">
         <MisionVisionSection />
       </main>
 

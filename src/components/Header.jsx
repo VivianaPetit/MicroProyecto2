@@ -5,7 +5,7 @@ import { NavBar } from "./NavBar";
 
 export const Header = () => {
     return (
-        <header className="sticky top-0 z-50 flex h-[76px] bg-[#C5D098] shadow-xl">
+        <header className="sticky top-0 z-50 flex h-[76px] bg-[#C5D098] shadow-md">
             <div className="pl-[32px] pt-2 place-content-center">
                 <a href="#">
                     <img src={logo} alt="MetroAvila Logo" className="lg:w-[150px] lg:h-[51px] w-[80px] h-[41px]"/>
