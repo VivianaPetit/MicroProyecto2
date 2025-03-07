@@ -1,9 +1,17 @@
+
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "/metroavila.svg";
 import Menu from "../assets/menu-hamburguesa.png";
 import { NavBar } from "./NavBar";
 
 export const Header = () => {
+    const navigate = useNavigate(); 
+
+    const handleLoginClick = () => {
+        navigate("/login"); 
+    };
+
     return (
         <header className="sticky top-0 z-50 flex h-[76px] bg-[#C5D098] shadow-md">
             <div className="pl-[32px] pt-2 place-content-center">
@@ -23,11 +31,13 @@ export const Header = () => {
                 <button className='bg-[#889E19] font-bold h-10 py-2 px-4 rounded-lg hidden lg:flex'>
                     Registrarse
                 </button>
-                <button className='bg-[#889E19] font-bold h-10 py-2 px-4 rounded-lg hidden lg:flex'>
+                <button 
+                    className='bg-[#889E19] font-bold h-10 py-2 px-4 rounded-lg hidden lg:flex'
+                    onClick={handleLoginClick} 
+                >
                     Iniciar Sesión
                 </button>
             </div>
         </header>
     );
-
 }
