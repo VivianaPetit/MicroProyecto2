@@ -3,9 +3,6 @@ import React from "react";
 function FormInput({ label, type, value, onChange, texto}) {
   return (
     <div className="mb-9">
-      <label className="mb-5 text-3xl font-black text-[#889E19]">
-        {label}
-      </label>
       <input
         type={type}
         defaultValue={value}
@@ -13,6 +10,7 @@ function FormInput({ label, type, value, onChange, texto}) {
         aria-label={label}
         onChange={onChange}
         placeholder={texto}
+        required
       /> 
     </div>
   );

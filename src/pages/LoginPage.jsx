@@ -9,12 +9,17 @@ import facebook from "../assets/facebook.png";
 import { useState } from "react";
 import { app } from "../credenciales"
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"
+import { useNavigate } from 'react-router-dom';
+
 
 const auth = getAuth(app);
 
 function LoginPage() {
-
-    const[Login, setLogin] = useState(true)
+    const navigate = useNavigate(); 
+    
+    const handleLoginClick = (route) => {
+        navigate(route); 
+    };
     
     const [email, setEmail] = useState('');
 
@@ -23,6 +28,7 @@ function LoginPage() {
     async function autFuncion(e) {
         e.preventDefault();
         console.log(email,password)
+       await signInWithEmailAndPassword(auth, email, password)
     }
 
     return (
@@ -37,23 +43,31 @@ function LoginPage() {
                     <SocialAuthButton image={facebook} altText="Facebook" />
                 </div>
                 <Divider text="ó" />
+                <div className="mb-5 text-3xl font-black text-[#889E19]">
+                    Email 
+                </div>
                 <FormInput label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} texto="Ingresa tu correo unimet"/>
+                <div className="mb-5 text-3xl font-black text-[#889E19]">
+                    Contraseña 
+                </div>
                 <FormInput label="Contraseña" type="password" value={password} onChange={(e) => setPassword(e.target.value)} texto="Ingresa tu contraseña" />
                 <div className="flex space-x-8">
                     <Button divClassName="flex items-center text-center mt-10" 
-                            className="bg-[#889e19] text-white font-extrabold rounded-3xl lg:w-[286px] lg:h-[68px] md:w-[246px] md:h-[58px] w-[216px] h-[45px]"
+                            className="bg-[#889e19] hover:bg-[#6E7D14] text-white cursor-pointer font-extrabold rounded-3xl lg:w-[286px] lg:h-[68px] md:w-[246px] md:h-[58px] w-[216px] h-[45px]"
                             text="Iniciar Sesión"
+                            onClick={() => handleLoginClick("/")}
                             type="submit"/>
                     <Button divClassName="flex items-center text-center mt-10" 
-                            className="bg-[#889e19] text-white font-extrabold rounded-3xl lg:w-[286px] lg:h-[68px] md:w-[246px] md:h-[58px] w-[216px] h-[45px]"
+                            className="bg-[#889e19] hover:bg-[#6E7D14] text-white cursor-pointer font-extrabold rounded-3xl lg:w-[286px] lg:h-[68px] md:w-[246px] md:h-[58px] w-[216px] h-[45px]"
                             text="Inicar como Administrador"
+                            onClick={undefined}
                             type="submit"/>
                 </div>
                 <p className="mt-5 ml-45 lg:text-[16px] md:text-[15px] text-[14px] text-black">
-                    Aún no tienes cuenta? 
-                    <a href="/signup" className="font-bold text-[#FF7E00] cursor-pointer ml-2" aria-label="Registrate">
+                    ¿Aún no tienes cuenta? 
+                    <a href="/signup" className="font-bold text-[#FF7E00] hover:text-[#FF7E00]/80 cursor-pointer ml-2" aria-label="Registrate">
                         Registrate
-                    </a>
+                    </a>     
                 </p>
             </form>
         </div>

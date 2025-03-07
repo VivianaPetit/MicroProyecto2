@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "/metroavila.svg";
 import Menu from "../assets/menu-hamburguesa.png";
 import { NavBar } from "./NavBar";
+import Button from "./Button";
 
 export const Header = () => {
     const navigate = useNavigate(); 
@@ -25,19 +26,25 @@ export const Header = () => {
                 <NavBar className="hidden lg:flex 
             w-[350px] place-content-around text-[16px] 
             items-center font-semibold text-[#1E1E1E]"/>
-            </div>
+            </div> 
             <div className="flex ml-auto space-x-4 items-center mr-32">
-                <button className='bg-[#889E19] font-bold h-10 py-2 px-4 rounded-lg hidden lg:flex'
-                        onClick={() => handleLoginClick("/signup")}>
-                    Registrarse
-                </button>
-                <button 
-                    className='bg-[#889E19] font-bold h-10 py-2 px-4 rounded-lg hidden lg:flex'
-                    onClick={() => handleLoginClick("/login")} 
-                >
-                    Iniciar Sesión
-                </button>
+            <Button
+                divClassName=""
+                className='bg-[#889E19] hover:bg-[#6E7D14] text-[#F2F5E5] cursor-pointer font-bold h-10 py-2 px-4 rounded-lg hidden lg:flex'
+                onClick={() => handleLoginClick("/signup")}
+                text="Registrarse"
+                type=""
+                    />
+            <Button
+                divClassName=""
+                className='bg-[#889E19] hover:bg-[#6E7D14] text-[#F2F5E5] cursor-pointer font-bold h-10 py-2 px-4 rounded-lg hidden lg:flex'
+                onClick={() => handleLoginClick("/login")}
+                text="Iniciar Sesión"
+                type=""
+                    />
+               
             </div>
+            
         </header>
     );
 }

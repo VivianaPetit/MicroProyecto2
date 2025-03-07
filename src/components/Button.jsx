@@ -1,17 +1,17 @@
 "use client";
 import React from "react";
 
-function Button({divClassName,className, text, type} ) {
+function Button({divClassName, className, text, onClick, type} ) {
   return (
     <div className={divClassName}>
       <button
         className={className}
         type={type}
-        aria-label="Inicar Sesión"
+        onClick={onClick}
       >
         {text}
       </button>
     </div>
   );
 }
-export default Button;
+export default Button

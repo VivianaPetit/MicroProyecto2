@@ -1,3 +1,4 @@
+import { UserCircleIcon } from "@heroicons/react/20/solid"
 import { Footer } from "../components/Footer"
 import { Header } from "../components/Header"
 import MisionVisionSection from "../components/MisionVisionSection"
@@ -12,6 +13,7 @@ export const LandingPage = () => {
 
   const [user, setUser] = useState(null);
 
+
   onAuthStateChanged(auth, (userConnected) => {
     if (userConnected) {
       // User is signed in.
@@ -22,14 +24,13 @@ export const LandingPage = () => {
       setUser(null);
       }
     }
+    
   );
   
   return (
       <div>
-        <div>
-          {user ? <h1>¡Hola, {user.displayName}!</h1> : <h1>¡Hola, visitante!</h1>}
-        </div>
       {/* Header */}
+      {user ? <h1>¡Hola, {user.email}!</h1> : <h1>¡Hola, visitante!</h1>} {/* Esto es solo para corroborar */}
       <Header />
 
       {/* Contenido principal */}
