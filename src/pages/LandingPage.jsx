@@ -10,7 +10,7 @@ export const LandingPage = () => {
       <Header />
 
       {/* Contenido principal */}
-      <main className="flex-grow lg:m-16">
+      <main className="flex-grow">
         <MisionVisionSection />
         <TestimonialsSection />
       </main>
