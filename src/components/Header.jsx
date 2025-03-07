@@ -7,8 +7,8 @@ import { NavBar } from "./NavBar";
 export const Header = () => {
     const navigate = useNavigate(); 
 
-    const handleLoginClick = () => {
-        navigate("/login"); 
+    const handleLoginClick = (route) => {
+        navigate(route); 
     };
 
     return (
@@ -27,12 +27,13 @@ export const Header = () => {
             items-center font-semibold text-[#1E1E1E]"/>
             </div>
             <div className="flex ml-auto space-x-4 items-center mr-32">
-                <button className='bg-[#889E19] font-bold h-10 py-2 px-4 rounded-lg hidden lg:flex'>
+                <button className='bg-[#889E19] font-bold h-10 py-2 px-4 rounded-lg hidden lg:flex'
+                        onClick={() => handleLoginClick("/signup")}>
                     Registrarse
                 </button>
                 <button 
                     className='bg-[#889E19] font-bold h-10 py-2 px-4 rounded-lg hidden lg:flex'
-                    onClick={handleLoginClick} 
+                    onClick={() => handleLoginClick("/login")} 
                 >
                     Iniciar Sesión
                 </button>
