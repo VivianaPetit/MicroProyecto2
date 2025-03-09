@@ -9,6 +9,7 @@ export const TestimonialsSection = () => {
     <section className="flex flex-col items-center m-8 gap-8 p-4"
       data-aos="fade-up" 
       data-aos-duration="1500"
+      data-aos-delay="800"
       data-aos-once="true">
       <div className="flex flex-col lg:flex-row items-center gap-8">
         <TestimonialCard

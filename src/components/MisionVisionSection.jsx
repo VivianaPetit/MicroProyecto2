@@ -21,6 +21,7 @@ const MisionVisionSection = () => {
       <div className='lg:flex relative text-2xl lg:w-[1200px] w-[560px] m-26 ml-35 items-center lg:items-start gap-8 p-4'
         data-aos="fade-up" 
         data-aos-duration="1500"
+        data-aos-delay="800"
         data-aos-once="true">
             <div className='items-center'>
               <div className='flex justify-center mb-10'>
@@ -53,6 +54,7 @@ const MisionVisionSection = () => {
         <div className='mt-10 text-center space-y-10 lg:text-[18px] md:text-[16px] text-[14px]'
               data-aos="fade-right" 
               data-aos-duration="1500"
+              data-aos-delay="800"
               data-aos-once="true">
           <div className='sm:flex static space-x-25 items-center '> 
             <Goal text="Promover la participación en actividades al aire libre."/>

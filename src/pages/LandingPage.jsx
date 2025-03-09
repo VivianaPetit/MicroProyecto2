@@ -1,4 +1,3 @@
-import { UserCircleIcon } from "@heroicons/react/20/solid"
 import { Footer } from "../components/Footer"
 import { Header } from "../components/Header"
 import MisionVisionSection from "../components/MisionVisionSection"
@@ -30,11 +29,11 @@ export const LandingPage = () => {
   return (
       <div>
       {/* Header */}
-      {user ? <h1>¡Hola, {user.email}!</h1> : <h1>¡Hola, visitante!</h1>} {/* Esto es solo para corroborar */}
+      {/*{user ? <h1>¡Hola, {user.email}!</h1> : <h1>¡Hola, visitante!</h1>} */}
       <Header />
 
       {/* Contenido principal */}
-      <main className="flex-grow">
+      <main className="flex-grow overflow-hidden">
         <MisionVisionSection />
         <TestimonialsSection />
       </main>
