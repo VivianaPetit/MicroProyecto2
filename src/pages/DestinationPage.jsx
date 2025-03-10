@@ -66,11 +66,14 @@ function DestinationPage() {
 
   return (
    
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-[#F2F5E5] min-h-screen">
       <Header />
 
-      <main className="p-8">
-        <h1 className="text-2xl font-bold text-gray-700 mb-6">Destinos Turísticos</h1>
+      <main className="p-8"       
+      data-aos="fade-up" 
+      data-aos-duration="1500"
+      data-aos-once="true">
+        <h1 className="text-3xl text-[#889e19] font-bold mb-6">Destinos Turísticos</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {destinos.map((destino) => (
               <Destination destino={destino}/>
@@ -78,7 +81,6 @@ function DestinationPage() {
         </div>
       </main>
 
-      <Footer />
       <Footer />
     </div>
   );

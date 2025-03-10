@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 import SocialAuthButton from "../components/SocialAuthButton";
 import FormInput from "../components/FormInput";
@@ -11,8 +10,6 @@ import facebook from "../assets/facebook.png";
 import { app } from "../credenciales";
 import banner2 from "../assets/campus.jpg";
 import { useNavigate } from 'react-router-dom';
-import { app } from "../credenciales";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const auth = getAuth(app);
 

@@ -19,7 +19,7 @@ const MisionVisionSection = () => {
       >
         <div className="absolute inset-0 flex flex-col items-center justify-center text-[#F2F5E5] text-center px-4">
           <h1 className="text-5xl md:text-6xl font-extrabold drop-shadow-md">MetroÁvila</h1>
-          <button onClick={() => navigate("/destinos")} className="mt-4 px-6 py-3 bg-[#889e19] text-white text-lg font-semibold rounded-full 
+          <button onClick={() => navigate("/destinations")} className="mt-4 px-6 py-3 bg-[#889e19] text-white text-lg font-semibold rounded-full 
             transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
             Explorar
           </button>
