@@ -10,6 +10,9 @@ import instagram from "../assets/instagram.png";
 import facebook from "../assets/facebook.png";
 import { app } from "../credenciales";
 import banner2 from "../assets/campus.jpg";
+import { useNavigate } from 'react-router-dom';
+import { app } from "../credenciales";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const auth = getAuth(app);
 
