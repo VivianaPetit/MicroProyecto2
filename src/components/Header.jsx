@@ -6,6 +6,7 @@ import { NavBar } from "./NavBar";
 import Button from "./Button";
 import lupa from "../assets/search-icon.png";
 import cruz from "../assets/cruz-icon.png";
+import AccountMenu from "./Options";
 
 export const Header = () => {
     const navigate = useNavigate(); 
@@ -32,7 +33,7 @@ export const Header = () => {
 
             <div className={`flex place-content-center shadow-xl lg:hidden order-first items-center bg-[#889E19] w-[100px] h-[76px] ${
                         isSearchVisible ? "hidden" : ""}`}>
-                <img className="w-[40px] h-[40px]" src={Menu} alt="Menu" />
+                <AccountMenu/>
             </div>
 
             <div className="flex items-center">
