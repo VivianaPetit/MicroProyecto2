@@ -7,12 +7,12 @@ import { NavBar } from "./NavBar";
 
 export const Footer = () => {
   return (
-    <footer className="w-full bg-[#F2F5E5] border-t-1 border-[#3333333c] p-6 shadow-md">
+    <footer className="w-full bg-[#F2F5E5] border-t-1 border-[#49494985] p-6 shadow-md">
       {/* Contenedor principal */}
       <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0">
         {/* Logo Section */}
         <div className="flex-shrink-0 lg:ml-20 mb-4 md:mb-0">
-          <a href="#">
+          <a href="/">
             <img
                 className="w-[150px] md:w-[377px] h-auto object-contain"
                 src={logo}

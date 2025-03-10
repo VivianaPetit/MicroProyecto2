@@ -79,6 +79,7 @@ function DestinationPage() {
       </main>
 
       <Footer />
+      <Footer />
     </div>
   );
 }

@@ -4,12 +4,14 @@ import Divider from "../components/Divider";
 import FormInput from "../components/FormInput";
 import Button from "../components/Button.jsx";
 import Dropdown from "../components/Dropdown";
+import divider from "../assets/divider.png";
 import google from "../assets/google.png";
 import instagram from "../assets/instagram.png";
 import facebook from "../assets/facebook.png";
 import { useNavigate } from 'react-router-dom';
 import { app } from "../credenciales";
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+import banner2 from "../assets/campus.jpg";
 
 const auth = getAuth(app);
 
@@ -138,7 +140,6 @@ function SignupPage() {
             await createUserWithEmailAndPassword(auth, email, password);
             console.log("Usuario registrado con éxito");
 
-            // Aquí puedes usar el estado `userType` para lo que necesites
             console.log("Tipo de usuario:", userType);
 
             navigate("/"); // Redirige al usuario después del registro
@@ -148,11 +149,11 @@ function SignupPage() {
     }
 
     return (
-        <div className="flex min-h-screen" style={{ backgroundColor: '#F2F5E5' }}>
+        <div className="flex min-h-screen bg-right-top" style={{ backgroundImage: `url(${banner2})`}}>
             {/* Contenedor del formulario a la derecha (75% del ancho) */}
-            <form onSubmit={handleSignup} className="w-3/4 flex flex-col items-start justify-center p-6 bg-white ml-auto">
-                <h1 className="lg:text-[42px] md:text-[32px] text-[28px] font-extrabold mb-5 text-[#889e19]">Registro</h1>
-                <h2 className="lg:text-[24px] md:text-[20px] text-[18px] text-black mb-8">Regístrate con:</h2>
+            <form onSubmit={handleSignup} className="w-3/4 flex flex-col items-start justify-center p-6 bg-[#F2F5E5] ml-auto">
+                <h1 className="lg:text-[42px] md:text-[32px] text-[28px] font-extrabold mb-1 text-[#889e19]">Registro</h1>
+                <h2 className="lg:text-[24px] md:text-[20px] text-[18px] text-black mb-4">Regístrate con:</h2>
 
                 {/* Botones de redes sociales (centrados) */}
                 <div className="flex justify-center gap-14 mb-8 w-full max-md:flex-col max-md:gap-5 max-md:items-center">
@@ -173,7 +174,7 @@ function SignupPage() {
                     />
                 </div>
 
-                <Divider text="ó" />
+                <img src={divider} alt="Separador" className="mb-5 max-sm:w-full" />
 
                 {/* Nombre y Número de Carnet en la misma fila */}
                 <div className="flex w-full gap-4 mb-5">
@@ -253,7 +254,8 @@ function SignupPage() {
                         <div className="flex-1">
                             <Button
                                 divClassName="flex items-center text-center w-full"
-                                className="bg-[#889e19] hover:bg-[#6E7D14] text-white cursor-pointer font-extrabold rounded-3xl lg:w-full lg:h-[68px] md:w-full md:h-[58px] w-full h-[45px]"
+                                className="bg-[#889e19] hover:bg-[#6E7D14] ml-auto text-white font-extrabold rounded-3xl border border-gray-300 
+                                            lg:w-[226px] lg:h-[58px] md:w-[216px] md:h-[48px] w-[206px] h-[35px] max-sm:w-full transition-all duration-300"
                                 text="Registrarse"
                                 type="submit"
                             />
@@ -262,9 +264,9 @@ function SignupPage() {
                 </div>
 
                 {/* Enlace para iniciar sesión */}
-                <p className="mt-5 lg:text-[16px] md:text-[15px] text-[14px] text-black">
+                <p className="lg:text-[16px] md:text-[15px] text-[14px] text-black">
                     ¿Ya tienes una cuenta?
-                    <a href="/login" className="font-bold text-[#FF7E00] hover:text-[#FF7E00]/80 cursor-pointer ml-2" aria-label="Inicia Sesión">
+                    <a href="/login" className="font-bold text-[#FF7E00] hover:text-[#ff5100] cursor-pointer ml-2" aria-label="Inicia Sesión">
                         Inicia Sesión
                     </a>
                 </p>
