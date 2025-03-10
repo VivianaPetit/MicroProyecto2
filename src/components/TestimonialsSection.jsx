@@ -38,7 +38,7 @@ export const TestimonialsSection = () => {
           className="max-w-[600px] bg-white shadow-md rounded-2xl p-6"
         />
       </div>
-      <h2 className="text-[42px] font-extrabold text-[#889e19] text-center">¡EXPLOREMOS EL ÁVILA CON <span className="text-[#FF7E00]">METROÁVILA</span>!</h2>
+      <h2 className="lg:text-[42px] md:text-[34px] text-[30px] font-extrabold text-[#889e19] text-center">¡EXPLOREMOS EL ÁVILA CON <span className="text-[#FF7E00]">METROÁVILA</span>!</h2>
     </section>
   );
 };
