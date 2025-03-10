@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SocialAuthButton from "../components/SocialAuthButton";
-import Divider from "../components/Divider";
 import FormInput from "../components/FormInput";
 import Button from "../components/Button.jsx";
 import Dropdown from "../components/Dropdown";
@@ -57,7 +56,6 @@ function SignupPage() {
         }
     };
 
-    // Esto no funciona con Firebase pero aqui esta por si acaso
     const handleInstagramSignup = () => {
         console.log("Instagram no está soportado directamente por Firebase.");
     };
@@ -139,9 +137,7 @@ function SignupPage() {
             // Registra al usuario con Firebase Authentication
             await createUserWithEmailAndPassword(auth, email, password);
             console.log("Usuario registrado con éxito");
-
             console.log("Tipo de usuario:", userType);
-
             navigate("/"); // Redirige al usuario después del registro
         } catch (error) {
             console.error("Error al registrar el usuario:", error.message);
@@ -149,37 +145,22 @@ function SignupPage() {
     }
 
     return (
-        <div className="flex min-h-screen bg-right-top" style={{ backgroundImage: `url(${banner2})`}}>
-            {/* Contenedor del formulario a la derecha (75% del ancho) */}
-            <form onSubmit={handleSignup} className="w-3/4 flex flex-col items-start justify-center p-6 bg-[#F2F5E5] ml-auto">
-                <h1 className="lg:text-[42px] md:text-[32px] text-[28px] font-extrabold mb-1 text-[#889e19]">Registro</h1>
-                <h2 className="lg:text-[24px] md:text-[20px] text-[18px] text-black mb-4">Regístrate con:</h2>
+        <div className="flex min-h-screen bg-right-top" style={{ backgroundImage: `url(${banner2})` }}>
+            <form onSubmit={handleSignup} className="w-full max-w-md flex flex-col items-center justify-center p-6 bg-[#F2F5E5] mx-auto rounded-lg shadow-lg">
+                <h1 className="text-2xl lg:text-4xl font-extrabold mb-1 text-[#889e19]">Registro</h1>
+                <h2 className="text-lg lg:text-xl text-black mb-4">Regístrate con:</h2>
 
-                {/* Botones de redes sociales (centrados) */}
-                <div className="flex justify-center gap-14 mb-8 w-full max-md:flex-col max-md:gap-5 max-md:items-center">
-                    <SocialAuthButton
-                        image={google}
-                        altText="Google"
-                        onClick={handleGoogleSignup}
-                    />
-                    <SocialAuthButton
-                        image={instagram}
-                        altText="Instagram"
-                        onClick={handleInstagramSignup}
-                    />
-                    <SocialAuthButton
-                        image={facebook}
-                        altText="Facebook"
-                        onClick={handleFacebookSignup}
-                    />
+                <div className="flex justify-center gap-4 mb-8 flex-wrap">
+                    <SocialAuthButton image={google} altText="Google" onClick={handleGoogleSignup} />
+                    <SocialAuthButton image={instagram} altText="Instagram" onClick={handleInstagramSignup} />
+                    <SocialAuthButton image={facebook} altText="Facebook" onClick={handleFacebookSignup} />
                 </div>
 
-                <img src={divider} alt="Separador" className="mb-5 max-sm:w-full" />
+                <img src={divider} alt="Separador" className="mb-5 w-full" />
 
-                {/* Nombre y Número de Carnet en la misma fila */}
-                <div className="flex w-full gap-4 mb-5">
-                    <div className="w-1/2">
-                        <div className="text-3xl font-black text-[#889E19] mb-2">Nombre</div>
+                <div className="flex flex-col w-full gap-4 mb-5">
+                    <div>
+                        <label className="text-lg font-black text-[#889E19] mb-2">Nombre</label>
                         <FormInput
                             label="Nombre"
                             type="text"
@@ -189,8 +170,8 @@ function SignupPage() {
                         />
                         {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                     </div>
-                    <div className="w-1/2">
-                        <div className="text-3xl font-black text-[#889E19] mb-2">Número de Carnet</div>
+                    <div>
+                        <label className="text-lg font-black text-[#889E19] mb-2">Número de Carnet</label>
                         <FormInput
                             label="Carnet"
                             type="text"
@@ -202,9 +183,8 @@ function SignupPage() {
                     </div>
                 </div>
 
-                {/* Carrera, Email y Contraseña (ocupan todo el ancho) */}
                 <div className="w-full mb-5">
-                    <div className="text-3xl font-black text-[#889E19] mb-2">Carrera</div>
+                    <label className="text-lg font-black text-[#889E19] mb-2">Carrera</label>
                     <FormInput
                         label="Carrera"
                         type="text"
@@ -216,7 +196,7 @@ function SignupPage() {
                 </div>
 
                 <div className="w-full mb-5">
-                    <div className="text-3xl font-black text-[#889E19] mb-2">Email</div>
+                    <label className="text-lg font-black text-[#889E19] mb-2">Email</label>
                     <FormInput
                         label="Email"
                         type="email"
@@ -228,7 +208,7 @@ function SignupPage() {
                 </div>
 
                 <div className="w-full mb-5">
-                    <div className="text-3xl font-black text-[#889E19] mb-2">Contraseña</div>
+                    <label className="text-lg font-black text-[#889E19] mb-2">Contraseña</label>
                     <FormInput
                         label="Contraseña"
                         type="password"
@@ -239,9 +219,8 @@ function SignupPage() {
                     {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
                 </div>
 
-                {/* Pregunta, Dropdown y Botón de Registro en la misma fila */}
                 <div className="w-full mb-5">
-                    <div className="text-3xl font-black text-[#889E19] mb-2">¿Eres Estudiante o Guía?</div>
+                    <label className="text-lg font-black text-[#889E19] mb-2">¿Eres Estudiante o Guía?</label>
                     <div className="flex gap-4">
                         <div className="flex-1">
                             <Dropdown
@@ -253,26 +232,25 @@ function SignupPage() {
                         </div>
                         <div className="flex-1">
                             <Button
-                                divClassName="flex items-center text-center w-full"
-                                className="bg-[#889e19] hover:bg-[#6E7D14] ml-auto text-white font-extrabold rounded-3xl border border-gray-300 
-                                            lg:w-[226px] lg:h-[58px] md:w-[216px] md:h-[48px] w-[206px] h-[35px] max-sm:w-full transition-all duration-300"
+                                className="bg-[#889e19] hover:bg-[#6E7D14] text-white font-extrabold rounded-3xl border border-gray-300 
+                                            w-full transition-all duration-300"
                                 text="Registrarse"
                                 type="submit"
                             />
                         </div>
-                    </div>
-                </div>
+                        </div>
+            </div>
 
-                {/* Enlace para iniciar sesión */}
-                <p className="lg:text-[16px] md:text-[15px] text-[14px] text-black">
-                    ¿Ya tienes una cuenta?
-                    <a href="/login" className="font-bold text-[#FF7E00] hover:text-[#ff5100] cursor-pointer ml-2" aria-label="Inicia Sesión">
-                        Inicia Sesión
-                    </a>
-                </p>
-            </form>
-        </div>
-    );
+            {/* Enlace para iniciar sesión */}
+            <p className="lg:text-[16px] md:text-[15px] text-[14px] text-black">
+                ¿Ya tienes una cuenta?
+                <a href="/login" className="font-bold text-[#FF7E00] hover:text-[#ff5100] cursor-pointer ml-2" aria-label="Inicia Sesión">
+                    Inicia Sesión
+                </a>
+            </p>
+        </form>
+    </div>
+);
 }
 
 export default SignupPage;
