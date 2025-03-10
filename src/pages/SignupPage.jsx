@@ -9,7 +9,7 @@ import instagram from "../assets/instagram.png";
 import facebook from "../assets/facebook.png";
 import { useNavigate } from 'react-router-dom';
 import { app } from "../credenciales";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 
 const auth = getAuth(app);
 
@@ -32,6 +32,33 @@ function SignupPage() {
     });
 
     const userOptions = ["Estudiante", "Guía"];
+
+    const handleGoogleSignup = async () => {
+        const provider = new GoogleAuthProvider();
+        try {
+            await signInWithPopup(auth, provider);
+            console.log("Autenticación con Google exitosa");
+            navigate("/");
+        } catch (error) {
+            console.error("Error al autenticar con Google:", error.message);
+        }
+    };
+
+    const handleFacebookSignup = async () => {
+        const provider = new FacebookAuthProvider();
+        try {
+            await signInWithPopup(auth, provider);
+            console.log("Autenticación con Facebook exitosa");
+            navigate("/");
+        } catch (error) {
+            console.error("Error al autenticar con Facebook:", error.message);
+        }
+    };
+
+    // Esto no funciona con Firebase pero aqui esta por si acaso
+    const handleInstagramSignup = () => {
+        console.log("Instagram no está soportado directamente por Firebase.");
+    };
 
     const validateForm = () => {
         const newErrors = {
@@ -129,9 +156,21 @@ function SignupPage() {
 
                 {/* Botones de redes sociales (centrados) */}
                 <div className="flex justify-center gap-14 mb-8 w-full max-md:flex-col max-md:gap-5 max-md:items-center">
-                    <SocialAuthButton image={google} altText="Google" />
-                    <SocialAuthButton image={instagram} altText="Instagram" />
-                    <SocialAuthButton image={facebook} altText="Facebook" />
+                    <SocialAuthButton
+                        image={google}
+                        altText="Google"
+                        onClick={handleGoogleSignup}
+                    />
+                    <SocialAuthButton
+                        image={instagram}
+                        altText="Instagram"
+                        onClick={handleInstagramSignup}
+                    />
+                    <SocialAuthButton
+                        image={facebook}
+                        altText="Facebook"
+                        onClick={handleFacebookSignup}
+                    />
                 </div>
 
                 <Divider text="ó" />
