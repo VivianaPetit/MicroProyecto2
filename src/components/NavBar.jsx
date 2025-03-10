@@ -6,7 +6,7 @@ export const NavBar = ({className}) => {
         <>
         <ul className={className}>
             <li>
-                <a href="#">Destinos</a>
+                <a href="/destinations">Destinos</a>
             </li>
             <li>
                 <a href="#">Reservas</a>
