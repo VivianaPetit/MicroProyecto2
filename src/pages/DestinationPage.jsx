@@ -7,6 +7,7 @@ import { Destination } from "../components/Destination.jsx";
 import { db } from "../credenciales.js";
 import { collection, getDocs } from "firebase/firestore";
 
+
 function DestinationPage() {
     const [destinos, setDestinos] = useState([]);
     const [loading, setLoading] = useState(true); 
