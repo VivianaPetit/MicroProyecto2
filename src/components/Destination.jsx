@@ -1,13 +1,13 @@
 import React from "react";
 
-import cruzdelospalmeros from "../assets/cruzdelospalmeros.jpg";
-import cruzdelospalmeros1 from "../assets/cruzdelospalmeros1.jpg";
-import humboldt from "../assets/humboldt.png";
-import piconaiguata from "../assets/piconaiguata.jpg";             //Esto será así momentaneamente
-import sabasnieves from "../assets/sabasnieves.jpg";
-import piedradelindio from "../assets/piedradelindio.png";
-import elbanquito from "../assets/elbanquito.webp"; 
-import antenas from "../assets/antenas.jpg";
+import cruzdelospalmeros from "/cruzdelospalmeros.jpg";
+import cruzdelospalmeros1 from "/cruzdelospalmeros1.jpg";
+import humboldt from "/humboldt.png";
+import piconaiguata from "/piconaiguata.jpg";             //Esto será así momentaneamente, luego se alojará en la nube.
+import sabasnieves from "/sabasnieves.jpg";
+import piedradelindio from "/piedradelindio.png";
+import elbanquito from "/elbanquito.webp"; 
+import antenas from "/antenas.jpg";
 
 const imagenes = {
     "Cruz de los Palmeros (vía Sabas Nieves)": cruzdelospalmeros,
