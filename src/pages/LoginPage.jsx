@@ -74,6 +74,7 @@ function LoginPage() {
         try {
             await signInWithPopup(auth, provider);
             setSuccess(true);
+            setTimeout(() => navigate("/"), 1500);
             navigate("/");
         } catch (error) {
             setError("Error al autenticar con Google.");
@@ -85,6 +86,7 @@ function LoginPage() {
         try {
             await signInWithPopup(auth, provider);
             setSuccess(true);
+            setTimeout(() => navigate("/"), 1500);
             navigate("/");
         } catch (error) {
             setError("Error al autenticar con Facebook.");
