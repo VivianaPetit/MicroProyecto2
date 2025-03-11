@@ -143,7 +143,7 @@ function LoginPage() {
                     </p>
                     <p className="text-black text-sm">
                         Ir al panel de 
-                        <a href="/admin" className="font-bold text-[#889E19] hover:text-[#6E7D14] transition-all ml-1">Administración</a>
+                        <button className="font-bold text-[#889E19] hover:text-[#6E7D14] transition-all ml-1">Administración</button>
                     </p>
                 </div>
             </form>

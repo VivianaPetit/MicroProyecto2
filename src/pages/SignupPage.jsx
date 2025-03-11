@@ -23,6 +23,7 @@ function SignupPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userType, setUserType] = useState('');
+    const [message, setMessage] = useState("");
     const [errors, setErrors] = useState({
         name: "",
         carnet: "",
@@ -38,10 +39,10 @@ function SignupPage() {
         const provider = new GoogleAuthProvider();
         try {
             await signInWithPopup(auth, provider);
-            console.log("Autenticación con Google exitosa");
-            navigate("/");
+            setMessage("Registro con Google exitoso. Redirigiendo..."); 
+            setTimeout(() => navigate("/"), 2000);
         } catch (error) {
-            console.error("Error al autenticar con Google:", error.message);
+            setMessage("Error al autenticar con Google: " + error.message);
         }
     };
 
@@ -49,10 +50,10 @@ function SignupPage() {
         const provider = new FacebookAuthProvider();
         try {
             await signInWithPopup(auth, provider);
-            console.log("Autenticación con Facebook exitosa");
-            navigate("/");
+            setMessage("Registro con Facebook exitoso. Redirigiendo..."); 
+            setTimeout(() => navigate("/"), 2000); // EDITADO
         } catch (error) {
-            console.error("Error al autenticar con Facebook:", error.message);
+            setMessage("Error al autenticar con Facebook: " + error.message); 
         }
     };
 
@@ -136,11 +137,10 @@ function SignupPage() {
         try {
             // Registra al usuario con Firebase Authentication
             await createUserWithEmailAndPassword(auth, email, password);
-            console.log("Usuario registrado con éxito");
-            console.log("Tipo de usuario:", userType);
-            navigate("/"); // Redirige al usuario después del registro
+            setMessage("Registro exitoso. Redirigiendo..."); 
+            setTimeout(() => navigate("/"), 2000); 
         } catch (error) {
-            console.error("Error al registrar el usuario:", error.message);
+            setMessage("Error al registrar el usuario: " + error.message);
         }
     }
 
@@ -157,7 +157,7 @@ function SignupPage() {
                 </div>
 
                 <img src={divider} alt="Separador" className="mb-5 w-full" />
-                {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+                {message && <p className="text-center text-green-600 font-bold mb-4">{message}</p>} 
 
                 <div className="flex flex-col w-full gap-4 mb-5">
                     <div>
