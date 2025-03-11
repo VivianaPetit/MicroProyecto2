@@ -133,7 +133,7 @@ function LoginPage() {
                 <div className="flex flex-col w-full mt-5 text-center">
                     <p className="text-black text-sm mb-2">
                         ¿Aún no tienes cuenta? 
-                        <a href="/signup" className="font-bold text-[#FF7E00] hover:text-[#ff5100] transition-all ml-1">Regístrate</a>
+                        <Link to="/signup" className="font-bold text-[#FF7E00] hover:text-[#ff5100] transition-all ml-1">Regístrate</Link>
                     </p>
                     <p className="text-black text-sm">
                         Ir al panel de 

@@ -247,9 +247,9 @@ function SignupPage() {
             {/* Enlace para iniciar sesión */}
             <p className="lg:text-[16px] md:text-[15px] text-[14px] text-black">
                 ¿Ya tienes una cuenta?
-                <a href="/login" className="font-bold text-[#FF7E00] hover:text-[#ff5100] cursor-pointer ml-2" aria-label="Inicia Sesión">
+                <Link to="/login" className="font-bold text-[#FF7E00] hover:text-[#ff5100] cursor-pointer ml-2" aria-label="Inicia Sesión">
                     Inicia Sesión
-                </a>
+                </Link>
             </p>
         </form>
     </div>
