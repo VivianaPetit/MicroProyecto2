@@ -23,7 +23,6 @@ function SignupPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userType, setUserType] = useState('');
-    const [message, setMessage] = useState("");
     const [errors, setErrors] = useState({
         name: "",
         carnet: "",
@@ -39,10 +38,10 @@ function SignupPage() {
         const provider = new GoogleAuthProvider();
         try {
             await signInWithPopup(auth, provider);
-            setMessage("Registro con Google exitoso. Redirigiendo..."); 
-            setTimeout(() => navigate("/"), 2000);
+            console.log("Autenticación con Google exitosa");
+            navigate("/");
         } catch (error) {
-            setMessage("Error al autenticar con Google: " + error.message);
+            console.error("Error al autenticar con Google:", error.message);
         }
     };
 
@@ -50,10 +49,10 @@ function SignupPage() {
         const provider = new FacebookAuthProvider();
         try {
             await signInWithPopup(auth, provider);
-            setMessage("Registro con Facebook exitoso. Redirigiendo..."); 
-            setTimeout(() => navigate("/"), 2000); // EDITADO
+            console.log("Autenticación con Facebook exitosa");
+            navigate("/");
         } catch (error) {
-            setMessage("Error al autenticar con Facebook: " + error.message); 
+            console.error("Error al autenticar con Facebook:", error.message);
         }
     };
 
@@ -137,10 +136,11 @@ function SignupPage() {
         try {
             // Registra al usuario con Firebase Authentication
             await createUserWithEmailAndPassword(auth, email, password);
-            setMessage("Registro exitoso. Redirigiendo..."); 
-            setTimeout(() => navigate("/"), 2000); 
+            console.log("Usuario registrado con éxito");
+            console.log("Tipo de usuario:", userType);
+            navigate("/"); // Redirige al usuario después del registro
         } catch (error) {
-            setMessage("Error al registrar el usuario: " + error.message);
+            console.error("Error al registrar el usuario:", error.message);
         }
     }
 
@@ -157,7 +157,6 @@ function SignupPage() {
                 </div>
 
                 <img src={divider} alt="Separador" className="mb-5 w-full" />
-                {message && <p className="text-center text-green-600 font-bold mb-4 animate-pulse">{message}</p>} 
 
                 <div className="flex flex-col w-full gap-4 mb-5">
                     <div>
@@ -220,8 +219,6 @@ function SignupPage() {
                     {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
                 </div>
 
-                {message && <p className="text-center text-green-600 font-bold mb-4 animate-pulse">{message}</p>} 
-
                 <div className="w-full mb-5">
                     <label className="text-lg font-black text-[#889E19] mb-2">¿Eres Estudiante o Guía?</label>
                     <div className="flex gap-4">
@@ -247,9 +244,13 @@ function SignupPage() {
             {/* Enlace para iniciar sesión */}
             <p className="lg:text-[16px] md:text-[15px] text-[14px] text-black">
                 ¿Ya tienes una cuenta?
-                <Link to="/login" className="font-bold text-[#FF7E00] hover:text-[#ff5100] cursor-pointer ml-2" aria-label="Inicia Sesión">
+                <button
+                    onClick={() => navigate("/login")}
+                    className="font-bold text-[#FF7E00] hover:text-[#ff5100] cursor-pointer ml-2"
+                    aria-label="Inicia Sesión"
+                >
                     Inicia Sesión
-                </Link>
+                </button>
             </p>
         </form>
     </div>

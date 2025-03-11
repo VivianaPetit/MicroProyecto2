@@ -133,7 +133,13 @@ function LoginPage() {
                 <div className="flex flex-col w-full mt-5 text-center">
                     <p className="text-black text-sm mb-2">
                         ¿Aún no tienes cuenta? 
-                        <Link to="/signup" className="font-bold text-[#FF7E00] hover:text-[#ff5100] transition-all ml-1">Regístrate</Link>
+                        <button 
+                            onClick={() => navigate("/signup")} 
+                            className="font-bold text-[#FF7E00] hover:text-[#ff5100] transition-all ml-1"
+                            aria-label="Regístrate"
+                        >
+                            Regístrate
+                        </button>
                     </p>
                     <p className="text-black text-sm">
                         Ir al panel de 
