@@ -73,6 +73,7 @@ function LoginPage() {
         const provider = new GoogleAuthProvider();
         try {
             await signInWithPopup(auth, provider);
+            setSuccess(true);
             navigate("/");
         } catch (error) {
             setError("Error al autenticar con Google.");
@@ -83,6 +84,7 @@ function LoginPage() {
         const provider = new FacebookAuthProvider();
         try {
             await signInWithPopup(auth, provider);
+            setSuccess(true);
             navigate("/");
         } catch (error) {
             setError("Error al autenticar con Facebook.");
