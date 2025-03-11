@@ -157,6 +157,7 @@ function SignupPage() {
                 </div>
 
                 <img src={divider} alt="Separador" className="mb-5 w-full" />
+                {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
 
                 <div className="flex flex-col w-full gap-4 mb-5">
                     <div>
@@ -216,7 +217,7 @@ function SignupPage() {
                         onChange={(e) => setPassword(e.target.value)}
                         texto="Ingresa tu contraseña"
                     />
-                    {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+   
                 </div>
 
                 <div className="w-full mb-5">
