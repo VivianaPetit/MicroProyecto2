@@ -1,25 +1,25 @@
+
+
 import React from "react";
+import { Link } from "react-router-dom"; 
 
-
-export const NavBar = ({className}) => {
-
-    
+export const NavBar = ({ className }) => {
     return (
         <>
-        <ul className={className}>
-            <li>
-                <a href="/destinations">Destinos</a>
-            </li>
-            <li>
-                <a href="/reservas">Reservas</a>
-            </li>
-            <li>
-                <a href="/galeria">Galería</a>
-            </li>
-            <li>
-                <a href="/foro">Foro</a>
-            </li>
-        </ul>
+            <ul className={className}>
+                <li>
+                    <Link to="/destinations">Destinos</Link> 
+                </li>
+                <li>
+                    <Link to="/reservas">Reservas</Link>
+                </li>
+                <li>
+                    <Link to="/galeria">Galería</Link>
+                </li>
+                <li>
+                    <Link to="/foro">Foro</Link>
+                </li>
+            </ul>
         </>
-    )
-}
+    );
+};
