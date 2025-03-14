@@ -9,7 +9,7 @@ export const NavBar = ({ className }) => {
                     <Link to="/destinations">Destinos</Link> 
                 </li>
                 <li>
-                    <Link to="/reservas">Reservas</Link>
+                    <Link to="/reservation">Reservas</Link>
                 </li>
                 <li>
                     <Link to="/galeria">Galería</Link> 

@@ -11,13 +11,16 @@ import { useNavigate } from 'react-router-dom';
 import { app } from "../credenciales";
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import banner2 from "../assets/campus.jpg";
+import { db } from "../credenciales";
+import { doc, setDoc } from "firebase/firestore"; 
+
 
 const auth = getAuth(app);
 
 function SignupPage() {
     const navigate = useNavigate();
-
     const [name, setName] = useState('');
+    const [lastName, setlastName] = useState('');
     const [carnet, setCarnet] = useState('');
     const [carrera, setCarrera] = useState('');
     const [email, setEmail] = useState('');
@@ -26,6 +29,7 @@ function SignupPage() {
     const [message, setMessage] = useState("");
     const [errors, setErrors] = useState({
         name: "",
+        lastName: "",
         carnet: "",
         carrera: "",
         email: "",
@@ -64,6 +68,7 @@ function SignupPage() {
     const validateForm = () => {
         const newErrors = {
             name: "",
+            lastName: "",
             carnet: "",
             carrera: "",
             email: "",
@@ -79,6 +84,15 @@ function SignupPage() {
             isValid = false;
         } else if (name.trim().length < 2) {
             newErrors.name = "El nombre debe tener al menos 2 caracteres.";
+            isValid = false;
+        }
+
+         // Validación del apellido
+         if (!lastName.trim()) {
+            newErrors.lastName = "El nombre es obligatorio.";
+            isValid = false;
+        } else if (lastName.trim().length < 2) {
+            newErrors.lastName = "El nombre debe tener al menos 2 caracteres.";
             isValid = false;
         }
 
@@ -128,21 +142,40 @@ function SignupPage() {
 
     async function handleSignup(e) {
         e.preventDefault();
-
+    
         // Validar el formulario
         if (!validateForm()) {
             return; // Detener el registro si hay errores
         }
-
+    
         try {
             // Registra al usuario con Firebase Authentication
-            await createUserWithEmailAndPassword(auth, email, password);
-            setMessage("Registro exitoso. Redirigiendo..."); 
-            setTimeout(() => navigate("/"), 2000); 
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user; // Obtenemos el objeto de usuario
+    
+            // Crear un documento de usuario en Firestore
+            const userRef = doc(db, "usuario", user.uid); // Crear un documento con el ID del usuario
+    
+            // Datos a guardar en Firestore
+            const userData = {
+                nombre: name,
+                apellido: lastName,
+                carnet: carnet,
+                carrera: carrera,
+                userType: userType,
+                email: email,
+            };
+    
+            // Guardar los datos del usuario en Firestore
+            await setDoc(userRef, userData);
+    
+            setMessage("Registro exitoso. Redirigiendo...");
+            setTimeout(() => navigate("/"), 2000); // Redirige después de un pequeño retraso
         } catch (error) {
             setMessage("Error al registrar el usuario: " + error.message);
         }
     }
+    
 
     return (
         <div className="flex min-h-screen bg-right-top" style={{ backgroundImage: `url(${banner2})` }}>
@@ -170,6 +203,17 @@ function SignupPage() {
                             texto="Ingresa tu nombre"
                         />
                         {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                    </div>
+                    <div>
+                        <label className="text-lg font-black text-[#889E19] mb-2">Apellido</label>
+                        <FormInput
+                            label="Apellido"
+                            type="text"
+                            value={lastName}
+                            onChange={(e) => setlastName(e.target.value)}
+                            texto="Ingresa tu apellido"
+                        />
+                        {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
                     </div>
                     <div>
                         <label className="text-lg font-black text-[#889E19] mb-2">Número de Carnet</label>
@@ -220,7 +264,7 @@ function SignupPage() {
    
                 </div>
 
-                <div className="w-full mb-5">
+                <div className="w-full mb-8">
                     <label className="text-lg font-black text-[#889E19] mb-2">¿Eres Estudiante o Guía?</label>
                     <div className="flex gap-4">
                         <div className="flex-1">
