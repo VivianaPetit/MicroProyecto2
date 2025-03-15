@@ -27,7 +27,6 @@ const BookingCalendar = () => {
         try {
             const querySnapshot = await getDocs(collection(db, "actividades"));
             
-            // Filtramos todas las actividades de la fecha seleccionada
             const selectedActivities = querySnapshot.docs
                 .map(doc2 => ({ id: doc2.id, ...doc2.data() }))
                 .filter(activity => {
@@ -35,7 +34,7 @@ const BookingCalendar = () => {
                     return activityDate === formattedDate;
                 });
 
-            setActivities(selectedActivities); // Guardamos todas las actividades encontradas
+            setActivities(selectedActivities); 
         } catch (error) {
             console.error("Error obteniendo actividades:", error);
             setActivities([]);
@@ -61,7 +60,7 @@ const BookingCalendar = () => {
               setMessage("Error al realizar la reserva.");
           }
       } else {
-          setMessage("No hay cupos disponibles.");
+          setMessage("La actividad", activityRef.nombre, "No tiene cupos disponibles.");
       }
   };
 
@@ -102,6 +101,7 @@ const BookingCalendar = () => {
 
             <div className="text-center mt-4">
                 <p className="text-lg">Fecha seleccionada: <span className="text-[#889e19] font-black">{date.toDateString()}</span></p>
+                
 
                 {loading ? (
                     <p className="text-center m-2 text-[16px] text-gray-800 font-semibold animate-pulse">
@@ -122,7 +122,9 @@ const BookingCalendar = () => {
                             <Button
                                 onClick={() => handleBooking(activity.id, activity.cupos)}
                                 disabled={!activity.disponible || activity.cupos === 0}
-                                className="mt-4 px-6 py-2 bg-[#889e19] cursor-pointer text-white font-bold rounded disabled:bg-gray-400"
+                                className={`mt-4 px-6 py-2 font-bold rounded-2xl
+                                    ${activity.cupos === 0 ? "bg-gray-400 cursor-not-allowed text-gray-700" : "bg-[#889e19] hover:bg-[#6E7D14] cursor-pointer text-white"}
+                                `}
                                 text="Reservar"
                             />
                         </div>
@@ -130,9 +132,6 @@ const BookingCalendar = () => {
                 ) : (
                     <p className="text-red-500">No hay actividades programadas para esta fecha.</p>
                 )}
-
-
-                {message && <p className="mt-2 text-green-600 font-bold">{message}</p>}
             </div>
         </div>
     );
